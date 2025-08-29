@@ -70,6 +70,30 @@ function initializeModal() {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const closeBtn = document.querySelector('.modal-close');
+    const prevBtn = document.getElementById('modalPrev');
+    const nextBtn = document.getElementById('modalNext');
+    
+    // Array to store all gallery images
+    let galleryImages = [];
+    let currentImageIndex = 0;
+    
+    // Update gallery images array when page loads
+    function updateGalleryImages() {
+        galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
+        console.log('Gallery images found:', galleryImages.length);
+    }
+    
+    // Call initially and when gallery changes
+    updateGalleryImages();
+    
+    // Function to show image by index
+    function showImageAtIndex(index) {
+        if (index >= 0 && index < galleryImages.length) {
+            currentImageIndex = index;
+            modalImage.src = galleryImages[index].src;
+            modalImage.alt = galleryImages[index].alt;
+        }
+    }
     
     // Use event delegation for dynamically created images
     document.addEventListener('click', function(e) {
@@ -77,6 +101,11 @@ function initializeModal() {
         if (e.target.classList.contains('gallery-image')) {
             console.log('Gallery image clicked via document listener');
             e.stopPropagation();
+            
+            // Update gallery images array and find current index
+            updateGalleryImages();
+            currentImageIndex = galleryImages.indexOf(e.target);
+            
             modal.style.display = 'flex';
             modal.style.opacity = '1';
             modalImage.src = e.target.src;
@@ -94,6 +123,28 @@ function initializeModal() {
         }, 300);
     }
     
+    // Navigation functions
+    function showPrevImage() {
+        const newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : galleryImages.length - 1;
+        showImageAtIndex(newIndex);
+    }
+    
+    function showNextImage() {
+        const newIndex = currentImageIndex < galleryImages.length - 1 ? currentImageIndex + 1 : 0;
+        showImageAtIndex(newIndex);
+    }
+    
+    // Navigation button event listeners
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        showPrevImage();
+    });
+    
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        showNextImage();
+    });
+    
     // Close modal when clicking the X
     closeBtn.addEventListener('click', closeModal);
     
@@ -104,14 +155,20 @@ function initializeModal() {
         }
     });
     
-    // Close modal with Escape key
+    // Keyboard navigation and close
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
+        if (modal.style.display === 'flex') {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            }
         }
     });
     
-    // Prevent modal from closing when clicking on the image
+    // Prevent modal from closing when clicking on the image or nav buttons
     modalImage.addEventListener('click', function(e) {
         e.stopPropagation();
     });
