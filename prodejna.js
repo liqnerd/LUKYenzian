@@ -1,4 +1,5 @@
-// PRODEJNA Page JavaScript
+// PRODEJNA Page JavaScript - VERSION 2 (NO NAVTOGGLE CONFLICTS)
+console.log('PRODEJNA.JS VERSION 2 LOADING - NO CONFLICTS');
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Prodejna.js loaded');
