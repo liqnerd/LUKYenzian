@@ -246,7 +246,7 @@
     top: 50%;
     transform: translateY(-50%);
     color: white;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 400;
     cursor: pointer;
     z-index: 2002;
@@ -261,18 +261,15 @@
     border-radius: 50%;
     backdrop-filter: blur(10px);
     line-height: 1;
+    text-align: center;
 }
 
 .modal-nav-left {
     left: 30px;
-    text-align: center;
-    padding-left: 2px;
 }
 
 .modal-nav-right {
     right: 30px;
-    text-align: center;
-    padding-right: 2px;
 }
 
 .modal-nav-left:hover,
@@ -406,7 +403,7 @@
     .modal-nav-right {
         width: 50px;
         height: 50px;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .modal-nav-left {
