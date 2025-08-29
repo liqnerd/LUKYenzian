@@ -117,19 +117,19 @@
     position: relative;
     width: 100%;
     max-width: 100vw;
+    overflow: hidden;
 }
 
 .gallery-scroll {
     display: flex;
     gap: 20px;
     padding: 10px 40px;
-    overflow: hidden;
     user-select: none;
     width: fit-content;
     height: 200px;
     align-items: center;
     will-change: transform;
-    animation: infiniteScroll 21s linear infinite;
+    animation: infiniteScroll 10s linear infinite;
 }
 
 @keyframes infiniteScroll {
