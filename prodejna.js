@@ -1,8 +1,36 @@
 // PRODEJNA Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Prodejna.js loaded');
+    
+    // Test modal elements exist
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    console.log('Modal elements found:', {modal: !!modal, modalImage: !!modalImage});
+    
     initializeGallery();
     initializeModal();
+    
+    // Add a test button for modal
+    const testBtn = document.createElement('button');
+    testBtn.textContent = 'TEST MODAL';
+    testBtn.style.position = 'fixed';
+    testBtn.style.top = '10px';
+    testBtn.style.right = '10px';
+    testBtn.style.zIndex = '9999';
+    testBtn.style.background = 'red';
+    testBtn.style.color = 'white';
+    testBtn.style.padding = '10px';
+    testBtn.addEventListener('click', function() {
+        console.log('Test button clicked');
+        if (modal) {
+            modal.style.display = 'flex';
+            modal.style.opacity = '1';
+            modalImage.src = 'https://images.unsplash.com/photo-1551524164-687a55dd1126?w=400&h=400&fit=crop';
+            console.log('Test modal opened');
+        }
+    });
+    document.body.appendChild(testBtn);
 });
 
 // Gallery Slideshow Functionality
@@ -20,10 +48,24 @@ function initializeGallery() {
         gallery.style.animationPlayState = 'running';
     });
     
-    // Add click listener directly to gallery for image clicks
+    // Add multiple click listeners for debugging
     gallery.addEventListener('click', function(e) {
+        console.log('Gallery clicked! Target:', e.target);
+        console.log('Target classes:', e.target.className);
+        console.log('Target tag:', e.target.tagName);
+        
+        // Check if clicked on gallery-item or gallery-image
+        let targetImage = null;
         if (e.target.classList.contains('gallery-image')) {
-            console.log('Gallery image clicked via gallery listener');
+            targetImage = e.target;
+            console.log('Direct click on gallery-image');
+        } else if (e.target.classList.contains('gallery-item')) {
+            targetImage = e.target.querySelector('.gallery-image');
+            console.log('Click on gallery-item, found image:', targetImage);
+        }
+        
+        if (targetImage) {
+            console.log('Opening modal with image:', targetImage.src);
             e.stopPropagation();
             
             const modal = document.getElementById('imageModal');
@@ -32,10 +74,12 @@ function initializeGallery() {
             if (modal && modalImage) {
                 modal.style.display = 'flex';
                 modal.style.opacity = '1';
-                modalImage.src = e.target.src;
-                modalImage.alt = e.target.alt;
+                modalImage.src = targetImage.src;
+                modalImage.alt = targetImage.alt;
                 document.body.style.overflow = 'hidden';
-                console.log('Modal should be visible now');
+                console.log('Modal opened successfully');
+            } else {
+                console.error('Modal elements not found!', {modal, modalImage});
             }
         }
     });

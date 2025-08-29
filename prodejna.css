@@ -129,7 +129,7 @@
     height: 200px;
     align-items: center;
     will-change: transform;
-    animation: infiniteScroll 26s linear infinite;
+    animation: infiniteScroll 39s linear infinite;
 }
 
 @keyframes infiniteScroll {
