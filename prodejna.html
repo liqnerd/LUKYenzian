@@ -6,7 +6,7 @@
     <title>Prodejna - Mountain Shop Enzian</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="prodejna_circular.css">
-    <link rel="stylesheet" href="reactbits-circular-gallery.css">
+    <link rel="stylesheet" href="simple-gallery.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -87,10 +87,10 @@
             </div>
         </section>
 
-        <!-- ReactBits Circular Gallery -->
+        <!-- Simple Reliable Gallery -->
         <section class="gallery-section">
             <div class="gallery-container">
-                <div class="reactbits-circular-gallery" id="reactbits-gallery"></div>
+                <div id="simple-gallery"></div>
             </div>
         </section>
     </main>
@@ -119,49 +119,8 @@
         </div>
     </div>
 
-    <!-- OGL Library -->
-    <script src="https://cdn.skypack.dev/ogl@0.0.102"></script>
-    
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script src="reactbits-circular-gallery.js"></script>
-    <script>
-        // Initialize ReactBits Circular Gallery with bend level 0
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryContainer = document.getElementById('reactbits-gallery');
-            
-            console.log('Checking for ReactBits gallery container:', galleryContainer);
-            console.log('Checking for OGL library:', window.OGL);
-            
-            if (galleryContainer && window.OGL) {
-                console.log('Initializing ReactBits Circular Gallery with bend level 0...');
-                
-                const galleryItems = [
-                    { image: "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop", text: "Shop Exterior" },
-                    { image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop", text: "Shop Interior" },
-                    { image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop", text: "Equipment Display" },
-                    { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop", text: "Mountain Biking" },
-                    { image: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=600&fit=crop", text: "Bike Equipment" },
-                    { image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop", text: "Outdoor Gear" },
-                    { image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop", text: "Mountain Views" },
-                    { image: "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=800&h=600&fit=crop", text: "Ski Equipment" },
-                ];
-
-                const gallery = new ReactBitsCircularGallery(galleryContainer, {
-                    items: galleryItems,
-                    bend: 0,                    // Your setting: bend level 0 (flat)
-                    textColor: "#AFBB30",       // Your brand green
-                    borderRadius: 0.05,         // Rounded corners
-                    font: "bold 30px Inter",    // Font
-                    scrollSpeed: 2,             // Scroll speed
-                    scrollEase: 0.05,           // Scroll easing
-                });
-
-                console.log('ReactBits Circular Gallery initialized successfully!');
-            } else {
-                console.error('Failed to initialize ReactBits gallery - missing container or OGL library');
-            }
-        });
-    </script>
+    <script src="simple-gallery.js"></script>
 </body>
 </html>
