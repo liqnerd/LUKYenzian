@@ -3,7 +3,7 @@ class SimpleGallery {
     constructor(container, options = {}) {
         this.container = container;
         this.options = {
-            autoplay: true,
+            autoplay: false,
             autoplayDelay: 4000,
             images: options.images || [
                 { src: "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop", alt: "Shop Exterior" },
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Initializing Simple Gallery...');
         
         window.simpleGallery = new SimpleGallery(galleryContainer, {
-            autoplay: true,
+            autoplay: false,
             autoplayDelay: 5000
         });
         

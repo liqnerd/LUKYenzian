@@ -84,7 +84,6 @@
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -93,10 +92,6 @@
     height: 100%;
     object-fit: cover;
     transition: all 0.4s ease;
-}
-
-.gallery-item:hover .gallery-image {
-    transform: scale(1.05);
 }
 
 /* Green hover overlay */
@@ -135,13 +130,11 @@
     font-weight: 600;
     text-align: center;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
+    transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover .gallery-label {
     opacity: 1;
-    transform: translateY(0);
 }
 
 /* Navigation buttons */
