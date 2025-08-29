@@ -1,3 +1,4 @@
+
 // PUJCOVNA Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -109,7 +110,7 @@ function handlePointClick(info, pointElement) {
         left: 50%;
         width: 60px;
         height: 60px;
-        border: 3px solid #8B7355;
+        border: 3px solid #AFBB30;
         border-radius: 50%;
         transform: translate(-50%, -50%);
         animation: highlight 0.6s ease-out forwards;
