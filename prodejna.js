@@ -9,14 +9,74 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeGallery() {
     const gallery = document.getElementById('gallery');
     
-    // Get original gallery items
-    const originalItems = Array.from(gallery.querySelectorAll('.gallery-item'));
+    if (!gallery) return;
     
-    // Create duplicates for seamless infinite scroll
-    originalItems.forEach(item => {
-        const clone = item.cloneNode(true);
-        gallery.appendChild(clone);
+    // Image data for the gallery
+    const images = [
+        {
+            src: 'https://images.unsplash.com/photo-1551524164-687a55dd1126?w=400&h=400&fit=crop',
+            alt: 'Shop exterior'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop',
+            alt: 'Shop interior'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=400&fit=crop',
+            alt: 'Equipment display'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+            alt: 'Mountain biking gear'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop',
+            alt: 'Bike equipment'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=400&fit=crop',
+            alt: 'Outdoor gear'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop',
+            alt: 'Mountain landscape'
+        }
+    ];
+    
+    // Create gallery item element
+    function createGalleryItem(image) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        img.className = 'gallery-image';
+        
+        item.appendChild(img);
+        return item;
+    }
+    
+    // Clear existing content
+    gallery.innerHTML = '';
+    
+    // Add original images
+    images.forEach(image => {
+        gallery.appendChild(createGalleryItem(image));
     });
+    
+    // Add duplicate images for seamless infinite loop
+    images.forEach(image => {
+        gallery.appendChild(createGalleryItem(image));
+    });
+    
+    // Calculate animation duration and apply
+    const itemWidth = 200; // 180px + 20px gap
+    const totalItems = images.length;
+    const duration = totalItems * 3; // 3 seconds per image
+    
+    // Apply CSS animation
+    gallery.style.animation = `infiniteScroll ${duration}s linear infinite`;
     
     // Pause animation on hover
     gallery.addEventListener('mouseenter', () => {
@@ -33,15 +93,14 @@ function initializeModal() {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const closeBtn = document.querySelector('.modal-close');
-    const galleryImages = document.querySelectorAll('.gallery-image');
     
-    // Open modal when clicking on gallery images
-    galleryImages.forEach(image => {
-        image.addEventListener('click', function(e) {
+    // Use event delegation for dynamically created images
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('gallery-image')) {
             e.stopPropagation();
             modal.style.display = 'block';
-            modalImage.src = this.src;
-            modalImage.alt = this.alt;
+            modalImage.src = e.target.src;
+            modalImage.alt = e.target.alt;
             document.body.style.overflow = 'hidden';
             
             // Add fade-in animation
@@ -49,7 +108,7 @@ function initializeModal() {
             setTimeout(() => {
                 modal.style.opacity = '1';
             }, 10);
-        });
+        }
     });
     
     // Close modal functions

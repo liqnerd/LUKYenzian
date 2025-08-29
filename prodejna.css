@@ -125,11 +125,10 @@
     padding: 10px 40px;
     overflow: hidden;
     user-select: none;
-    width: 100%;
+    width: fit-content;
     height: 200px;
     align-items: center;
     will-change: transform;
-    animation: infiniteScroll 30s linear infinite;
 }
 
 @keyframes infiniteScroll {
