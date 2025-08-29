@@ -6,13 +6,11 @@
     <title>Prodejna - Mountain Shop Enzian</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="prodejna_circular.css">
-    <link rel="stylesheet" href="webgl-circular-gallery.css">
+    <link rel="stylesheet" href="horizontal-gallery.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- OGL WebGL Library -->
-    <script src="https://unpkg.com/ogl@0.0.102/dist/ogl.umd.js"></script>
+
 </head>
 <body class="prodejna-body">
     <div class="page-wrapper">
@@ -89,10 +87,10 @@
             </div>
         </section>
 
-        <!-- WebGL Circular Image Gallery -->
+        <!-- Horizontal Image Gallery -->
         <section class="gallery-section">
             <div class="gallery-container">
-                <div class="webgl-circular-gallery" id="webgl-gallery"></div>
+                <div id="horizontal-gallery"></div>
             </div>
         </section>
     </main>
@@ -113,130 +111,20 @@
 
     </div>
 
+    <!-- Modal for enlarged images -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Enlarged view">
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script src="webgl-circular-gallery.js"></script>
+    <script src="horizontal-gallery.js"></script>
     <script>
-        // Initialize WebGL Circular Gallery with your settings
-        function initializeGallery() {
-            const galleryContainer = document.getElementById('webgl-gallery');
-            
-            console.log('Checking for gallery container:', galleryContainer);
-            console.log('Checking for OGL library:', window.OGL);
-            console.log('Checking for WebGLCircularGallery:', window.WebGLCircularGallery);
-            
-            if (!galleryContainer) {
-                console.error('Gallery container not found');
-                return;
-            }
-            
-            if (!window.OGL) {
-                console.error('OGL library not loaded');
-                return;
-            }
-            
-            if (!window.WebGLCircularGallery) {
-                console.error('WebGLCircularGallery class not found');
-                return;
-            }
-            
-            try {
-                const galleryItems = [
-                    { image: "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop", text: "Shop Exterior" },
-                    { image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop", text: "Shop Interior" },
-                    { image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop", text: "Equipment Display" },
-                    { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop", text: "Mountain Biking" },
-                    { image: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=600&fit=crop", text: "Bike Equipment" },
-                    { image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop", text: "Outdoor Gear" },
-                    { image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop", text: "Mountain Views" },
-                    { image: "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=800&h=600&fit=crop", text: "Ski Equipment" },
-                ];
-
-                const gallery = new WebGLCircularGallery(galleryContainer, {
-                    items: galleryItems,
-                    bend: 0,                    // Your setting: No curve (flat)
-                    textColor: "#AFBB30",       // Your brand green
-                    borderRadius: 0.05,         // Your setting: Rounded corners
-                    font: "bold 24px Inter",    // Font for image labels
-                    scrollSpeed: 2,             // Your setting: Scroll sensitivity
-                    scrollEase: 0.05,           // Your setting: Smooth scrolling
-                });
-
-                console.log('WebGL Circular Gallery initialized successfully with your settings!');
-            } catch (error) {
-                console.error('Error initializing WebGL gallery:', error);
-                
-                // Fallback to simple gallery
-                console.log('Falling back to simple gallery...');
-                initSimpleGallery(galleryContainer);
-            }
-        }
-        
-        function initSimpleGallery(container) {
-            container.innerHTML = `
-                <div class="simple-gallery-fallback">
-                    <div class="gallery-scroll">
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1551524164-687a55dd1126?w=400&h=300&fit=crop" alt="Shop Exterior" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" alt="Shop Interior" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" alt="Equipment Display" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Mountain Biking" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=300&fit=crop" alt="Bike Equipment" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=300&fit=crop" alt="Outdoor Gear" class="gallery-image">
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Add simple scroll functionality
-            const scrollContainer = container.querySelector('.gallery-scroll');
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-            
-            scrollContainer.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - scrollContainer.offsetLeft;
-                scrollLeft = scrollContainer.scrollLeft;
-            });
-            
-            scrollContainer.addEventListener('mouseleave', () => {
-                isDown = false;
-            });
-            
-            scrollContainer.addEventListener('mouseup', () => {
-                isDown = false;
-            });
-            
-            scrollContainer.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - scrollContainer.offsetLeft;
-                const walk = (x - startX) * 2;
-                scrollContainer.scrollLeft = scrollLeft - walk;
-            });
-        }
-
-        // Initialize when DOM is ready and scripts are loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit for all scripts to load
-            setTimeout(initializeGallery, 500);
-        });
-        
-        // Also try when window loads
-        window.addEventListener('load', function() {
-            setTimeout(initializeGallery, 100);
-        });
+        // Gallery will be initialized by horizontal-gallery.js
+        console.log('Prodejna page loaded - horizontal gallery should initialize automatically');
     </script>
 </body>
 </html>
