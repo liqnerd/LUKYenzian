@@ -30,16 +30,12 @@ function initializeGallery() {
             const modalImage = document.getElementById('modalImage');
             
             if (modal && modalImage) {
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
+                modal.style.opacity = '1';
                 modalImage.src = e.target.src;
                 modalImage.alt = e.target.alt;
                 document.body.style.overflow = 'hidden';
-                
-                // Add fade-in animation
-                modal.style.opacity = '0';
-                setTimeout(() => {
-                    modal.style.opacity = '1';
-                }, 10);
+                console.log('Modal should be visible now');
             }
         }
     });
@@ -55,18 +51,13 @@ function initializeModal() {
     document.addEventListener('click', function(e) {
         console.log('Click detected on:', e.target);
         if (e.target.classList.contains('gallery-image')) {
-            console.log('Gallery image clicked, opening modal');
+            console.log('Gallery image clicked via document listener');
             e.stopPropagation();
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
+            modal.style.opacity = '1';
             modalImage.src = e.target.src;
             modalImage.alt = e.target.alt;
             document.body.style.overflow = 'hidden';
-            
-            // Add fade-in animation
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 10);
         }
     });
     
