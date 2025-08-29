@@ -39,7 +39,7 @@ function createTextTexture(gl, text, font = "bold 30px monospace", color = "whit
   context.fillText(text, canvas.width / 2, canvas.height / 2);
   
   // Create texture using OGL
-  const texture = new OGL.Texture(gl, { generateMipmaps: false });
+  const texture = new window.OGL.Texture(gl, { generateMipmaps: false });
   texture.image = canvas;
   return { texture, width: canvas.width, height: canvas.height };
 }
@@ -58,8 +58,8 @@ class Title {
 
   createMesh() {
     const { texture, width, height } = createTextTexture(this.gl, this.text, this.font, this.textColor);
-    const geometry = new OGL.Plane(this.gl);
-    const program = new OGL.Program(this.gl, {
+    const geometry = new window.OGL.Plane(this.gl);
+    const program = new window.OGL.Program(this.gl, {
       vertex: `
         attribute vec3 position;
         attribute vec2 uv;
@@ -85,7 +85,7 @@ class Title {
       transparent: true,
     });
     
-    this.mesh = new OGL.Mesh(this.gl, { geometry, program });
+    this.mesh = new window.OGL.Mesh(this.gl, { geometry, program });
     const aspect = width / height;
     const textHeight = this.plane.scale.y * 0.15;
     const textWidth = textHeight * aspect;
@@ -134,11 +134,11 @@ class Media {
   }
 
   createShader() {
-    const texture = new OGL.Texture(this.gl, { 
+    const texture = new window.OGL.Texture(this.gl, { 
       generateMipmaps: true
     });
     
-    this.program = new OGL.Program(this.gl, {
+    this.program = new window.OGL.Program(this.gl, {
       depthTest: false,
       depthWrite: false,
       vertex: `
@@ -219,7 +219,7 @@ class Media {
   }
 
   createMesh() {
-    this.plane = new OGL.Mesh(this.gl, {
+    this.plane = new window.OGL.Mesh(this.gl, {
       geometry: this.geometry,
       program: this.program,
     });
@@ -340,7 +340,7 @@ class WebGLCircularGallery {
   }
 
   createRenderer() {
-    this.renderer = new OGL.Renderer({ 
+    this.renderer = new window.OGL.Renderer({ 
       alpha: true,
       antialias: true,
       dpr: Math.min(window.devicePixelRatio || 1, 2)
@@ -351,17 +351,17 @@ class WebGLCircularGallery {
   }
 
   createCamera() {
-    this.camera = new OGL.Camera(this.gl);
+    this.camera = new window.OGL.Camera(this.gl);
     this.camera.fov = 45;
     this.camera.position.z = 20;
   }
 
   createScene() {
-    this.scene = new OGL.Transform();
+    this.scene = new window.OGL.Transform();
   }
 
   createGeometry() {
-    this.planeGeometry = new OGL.Plane(this.gl, {
+    this.planeGeometry = new window.OGL.Plane(this.gl, {
       heightSegments: 50,
       widthSegments: 100,
     });
