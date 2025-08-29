@@ -129,7 +129,7 @@
     height: 200px;
     align-items: center;
     will-change: transform;
-    animation: infiniteScroll 10s linear infinite;
+    animation: infiniteScroll 20s linear infinite;
 }
 
 @keyframes infiniteScroll {
@@ -169,6 +169,7 @@
     object-fit: cover;
     transition: all 0.3s ease;
     filter: grayscale(20%);
+    cursor: pointer;
 }
 
 /* Green Gradient Hover Effect */

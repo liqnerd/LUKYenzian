@@ -19,6 +19,30 @@ function initializeGallery() {
     gallery.addEventListener('mouseleave', () => {
         gallery.style.animationPlayState = 'running';
     });
+    
+    // Add click listener directly to gallery for image clicks
+    gallery.addEventListener('click', function(e) {
+        if (e.target.classList.contains('gallery-image')) {
+            console.log('Gallery image clicked via gallery listener');
+            e.stopPropagation();
+            
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            if (modal && modalImage) {
+                modal.style.display = 'block';
+                modalImage.src = e.target.src;
+                modalImage.alt = e.target.alt;
+                document.body.style.overflow = 'hidden';
+                
+                // Add fade-in animation
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.opacity = '1';
+                }, 10);
+            }
+        }
+    });
 }
 
 // Modal Functionality
@@ -29,7 +53,9 @@ function initializeModal() {
     
     // Use event delegation for dynamically created images
     document.addEventListener('click', function(e) {
+        console.log('Click detected on:', e.target);
         if (e.target.classList.contains('gallery-image')) {
+            console.log('Gallery image clicked, opening modal');
             e.stopPropagation();
             modal.style.display = 'block';
             modalImage.src = e.target.src;
