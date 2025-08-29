@@ -10,27 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initializeGallery();
     initializeModal();
-    
-    // Add a test button for modal
-    const testBtn = document.createElement('button');
-    testBtn.textContent = 'TEST MODAL';
-    testBtn.style.position = 'fixed';
-    testBtn.style.top = '10px';
-    testBtn.style.right = '10px';
-    testBtn.style.zIndex = '9999';
-    testBtn.style.background = 'red';
-    testBtn.style.color = 'white';
-    testBtn.style.padding = '10px';
-    testBtn.addEventListener('click', function() {
-        console.log('Test button clicked');
-        if (modal) {
-            modal.style.display = 'flex';
-            modal.style.opacity = '1';
-            modalImage.src = 'https://images.unsplash.com/photo-1551524164-687a55dd1126?w=400&h=400&fit=crop';
-            console.log('Test modal opened');
-        }
-    });
-    document.body.appendChild(testBtn);
 });
 
 // Gallery Slideshow Functionality
@@ -137,58 +116,4 @@ function initializeModal() {
     });
 }
 
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Mobile navigation (reuse from main script)
-const navToggle = document.querySelector('.nav-toggle');
-const navMenus = document.querySelectorAll('.nav-menu');
-
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenus.forEach(menu => {
-            menu.classList.toggle('active');
-        });
-        navToggle.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : '';
-    });
-}
-
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenus.forEach(menu => {
-            menu.classList.remove('active');
-        });
-        if (navToggle) {
-            navToggle.classList.remove('active');
-        }
-        document.body.style.overflow = '';
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = 'none';
-    }
-});
+// Navigation code is handled by script.js - no duplicates needed here
