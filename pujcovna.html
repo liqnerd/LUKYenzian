@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Půjčovna eBike - Mountain Shop Enzian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pujcovna.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="pujcovna-body">
+    <div class="page-wrapper">
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <ul class="nav-menu nav-left">
+                    <li class="nav-item">
+                        <a href="prodejna.html" class="nav-link">PRODEJNA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pujcovna.html" class="nav-link active">PŮJČOVNA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servis" class="nav-link">SERVIS</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Mountain Shop Enzian" class="logo-image">
+                    </a>
+                </div>
+                
+                <ul class="nav-menu nav-right">
+                    <li class="nav-item">
+                        <a href="#kurzy" class="nav-link">KURZY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#aktuality" class="nav-link">AKTUALITY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#kontakt" class="nav-link">KONTAKT</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pujcovna-main">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Půjčovna</h1>
+                <div class="opening-hours">
+                    <p class="hours-label">PEC POD SNĚŽKOU</p>
+                    <p class="hours-time">Otevřeno denně 9:00 - 18:00</p>
+                    <p class="hours-time">Telefon +420 608 019 418</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Content -->
+        <section class="hero-content">
+            <div class="container">
+                <div class="bike-info">
+                    <p class="bike-description">
+                        Půjčujeme E-bikes Cannondale Moterra Neo Carbon 2.<br>
+                        Máme 11 kol ve čtyřech velikostech S, M, L, XL.
+                    </p>
+                </div>
+                
+                <div class="pricing-section">
+                    <button class="pricing-btn">CENÍK PŮJČOVNY</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn outline">ONLINE REZERVACE</button>
+                    <button class="action-btn outline">PRŮVODCE</button>
+                </div>
+                
+                <!-- Gray Background Section -->
+                <div class="bike-gray-section">
+                    <div class="container">
+                        <!-- Bike Title Section -->
+                        <div class="bike-title-section">
+                            <h2 class="bike-main-title">Naše kola</h2>
+                            <p class="bike-subtitle">MOTERRA CARBON 2</p>
+                        </div>
+                    
+                    <div class="bike-image-section">
+                    <div class="bike-container">
+                        <img src="bike.png" alt="Cannondale Moterra Neo Carbon 2 eBike" class="bike-image">
+                        
+                                    <!-- Interactive Points -->
+            <div class="bike-point point-rear-wheel" data-info="Rear Wheel">
+                <img src="point.png" alt="Point" class="point-image">
+                <div class="pulse-ring"></div>
+                <!-- Tooltip for rear wheel -->
+                <div class="point-tooltip tooltip-rear-wheel">
+                    <div class="tooltip-text">přehazovačka Shimano XT<br>12 rychlostí</div>
+                    <div class="tooltip-line"></div>
+                </div>
+            </div>
+                        
+                        <div class="bike-point point-battery" data-info="Battery">
+                            <img src="point.png" alt="Point" class="point-image">
+                            <div class="pulse-ring"></div>
+                            <!-- Tooltip for battery -->
+                            <div class="point-tooltip tooltip-battery">
+                                <div class="tooltip-text">800Wh baterie<br>dojezd až 120 km</div>
+                                <div class="tooltip-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bike-point point-handlebar" data-info="Handlebar">
+                            <img src="point.png" alt="Point" class="point-image">
+                            <div class="pulse-ring"></div>
+                            <!-- Tooltip for handlebar -->
+                            <div class="point-tooltip tooltip-handlebar">
+                                <div class="tooltip-text">karbonový rám<br>Bosh SmartSystem</div>
+                                <div class="tooltip-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bike-point point-fork" data-info="Fork">
+                            <img src="point.png" alt="Point" class="point-image">
+                            <div class="pulse-ring"></div>
+                            <!-- Tooltip for fork -->
+                            <div class="point-tooltip tooltip-fork">
+                                <div class="tooltip-text">vidlice RockShox Zeb Select<br>se zdvihem 160 mm</div>
+                                <div class="tooltip-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bike Description Text -->
+                <div class="bike-description-detailed">
+                    <p>Zcela nová Moterra Carbon 2 s technologií Bosch SmartSystem, inovativním karbonovým rámem, vidlicí RockShox Zeb Select se zdvihem 160 mm a 12-ti rychlostní přehazovačkou Shimano XT nabízí při jízdě v terénu neomezené možnosti. Jezdci tak dodává sebedůvěru pro strmé stoupání, rychlé technické sjezdy a dlouhé hodiny v sedle.</p>
+                    
+                    <p><strong>Celoodpružené elektrokolo</strong> postavené tak, aby bořilo hranice. Technologie Proportional Response je již u našich celoodpružených jízdních kol samozřejmostí. Jezdcům všech velikostí zaručuje tu nejlépe vyváženou polohu mezi předním a zadním kolem. Pohonná jednotka je umístěna níže, díky čemuž kolo získává lepší ovladatelnost a stabilitu v terénu.</p>
+                    
+                    <p>Pohonná jednotka Bosch e-MTB Performance Line CX s točivým momentem 85 Nm je zárukou výkonu, plynulosti a přirozeného pocitu při šlapání. Baterie o kapacitě <strong>800Wh nabízí dojezd až 120 km</strong>. Celý systém máte pod kontrolou prostřednictvím volně dostupné aplikace Bosch Flow a řídicí jednotky s LED displejem.</p>
+                </div>
+                    </div> <!-- End of container -->
+                </div> <!-- End of bike-gray-section -->
+                
+                <!-- Pricing Table -->
+                <div class="pricing-table-section">
+                    <h2 class="pricing-title">Ceník</h2>
+                    <p class="pricing-subtitle">Podmínky půjčení: platný doklad + vratná kauce 10.000,-</p>
+                    
+                    <div class="pricing-table">
+                        <div class="pricing-header">
+                            <div class="pricing-cell empty"></div>
+                            <div class="pricing-cell">1 DEN</div>
+                            <div class="pricing-cell">2 DNY</div>
+                            <div class="pricing-cell">3 DNY</div>
+                            <div class="pricing-cell">4 DNY</div>
+                            <div class="pricing-cell">5 DNÍ</div>
+                            <div class="pricing-cell">6 DNÍ</div>
+                            <div class="pricing-cell">7 DEN</div>
+                        </div>
+                        
+                        <div class="pricing-row">
+                            <div class="pricing-cell service-cell">
+                                <div class="service-name">eBike</div>
+                                <div class="service-desc">helma + zámek + cyklo batoh</div>
+                            </div>
+                            <div class="pricing-cell">1690</div>
+                            <div class="pricing-cell">3380</div>
+                            <div class="pricing-cell">4800</div>
+                            <div class="pricing-cell">6000</div>
+                            <div class="pricing-cell">7000</div>
+                            <div class="pricing-cell">7700</div>
+                            <div class="pricing-cell free">ZDARMA</div>
+                        </div>
+                        
+                        <div class="pricing-row">
+                            <div class="pricing-cell service-cell">
+                                <div class="service-name">junior eBike</div>
+                                <div class="service-desc">helma + zámek + cyklo batoh</div>
+                            </div>
+                            <div class="pricing-cell">900</div>
+                            <div class="pricing-cell">1800</div>
+                            <div class="pricing-cell">2550</div>
+                            <div class="pricing-cell">3200</div>
+                            <div class="pricing-cell">3750</div>
+                            <div class="pricing-cell">4200</div>
+                            <div class="pricing-cell free">ZDARMA</div>
+                        </div>
+                        
+                        <div class="pricing-row">
+                            <div class="pricing-cell service-cell">
+                                <div class="service-name">dětský vozík Thule Chariot</div>
+                                <div class="service-desc">zapůjčení je možné pouze s kolem z naší půjčovny</div>
+                            </div>
+                            <div class="pricing-cell">700</div>
+                            <div class="pricing-cell">1400</div>
+                            <div class="pricing-cell">1950</div>
+                            <div class="pricing-cell">2400</div>
+                            <div class="pricing-cell">2750</div>
+                            <div class="pricing-cell">2940</div>
+                            <div class="pricing-cell free">ZDARMA</div>
+                        </div>
+                        
+                        <div class="pricing-row">
+                            <div class="pricing-cell service-cell">
+                                <div class="service-name">SPD pedály</div>
+                                <div class="service-desc"></div>
+                            </div>
+                            <div class="pricing-cell">50</div>
+                            <div class="pricing-cell">100</div>
+                            <div class="pricing-cell">135</div>
+                            <div class="pricing-cell">160</div>
+                            <div class="pricing-cell">175</div>
+                            <div class="pricing-cell">210</div>
+                            <div class="pricing-cell free">ZDARMA</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Online Reservation Form -->
+                <div class="reservation-section">
+                    <h2 class="reservation-title">Online rezervace</h2>
+                    
+                    <form class="reservation-form" id="reservationForm">
+                        <div class="form-row">
+                            <input type="text" class="form-input" placeholder="Vaše jméno" name="name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <input type="email" class="form-input" placeholder="Váš e-mail" name="email" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <input type="tel" class="form-input" placeholder="Vaše telefonní číslo" name="phone" required>
+                        </div>
+                        
+                        <div class="form-row-double">
+                            <input type="date" class="form-input form-input-half" placeholder="Vyberte datum od" name="dateFrom" required>
+                            <input type="date" class="form-input form-input-half" placeholder="Vyberte datum do" name="dateTo" required>
+                        </div>
+                        
+                        <div class="bike-section" data-bike="1">
+                            <div class="bike-label">eBike 1</div>
+                            <div class="form-row">
+                                <input type="number" class="form-input" placeholder="Vaše výška" name="height" min="120" max="220" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <input type="number" class="form-input" placeholder="Vaše hmotnost" name="weight" min="30" max="150" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row bike-buttons-row">
+                            <button type="button" class="bike-type-btn add-bike-btn active" data-type="ebike">PŘIDAT EBIKE</button>
+                            <button type="button" class="bike-type-btn remove-bike-btn" data-type="ebike">ODEBRAT EBIKE</button>
+                        </div>
+                        
+                        <div class="form-row">
+                            <select class="form-input form-select" name="guide" required>
+                                <option value="">Průvodce</option>
+                                <option value="bez-pruvodce">Bez průvodce</option>
+                                <option value="s-pruvodcem">S průvodcem (+500 Kč/den)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <textarea class="form-input form-textarea" placeholder="Poznámky" name="notes" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <button type="submit" class="submit-btn">ODESLAT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Guide Section -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="guide-content">
+                    <h2 class="guide-title">Průvodce</h2>
+                    <p class="guide-subtitle">Časová náročnost: <span class="guide-time">4-5 hodin</span></p>
+                    <p class="guide-price">Cena za průvodce s eBikem je 3 490,-</p>
+                    
+                    <div class="guide-features">
+                        <div class="guide-feature">
+                            <img src="icon1.png" alt="Individuální naplánování trasy" class="guide-icon">
+                            <h3 class="feature-title">individuální naplánování trasy</h3>
+                            <p class="feature-description">dle fyzických schopností klienta, povětrnostních podmínek,...</p>
+                        </div>
+                        
+                        <div class="guide-feature">
+                            <img src="icon2.png" alt="Pomoc s opravou" class="guide-icon">
+                            <h3 class="feature-title">pomoc s opravou</h3>
+                            <p class="feature-description">nebo s nastavením kola</p>
+                        </div>
+                        
+                        <div class="guide-feature">
+                            <img src="icon3.png" alt="Bezstarostná jízda" class="guide-icon">
+                            <h3 class="feature-title">bezstarostná jízda</h3>
+                            <p class="feature-description">s poznáváním krajiny a zajímavostí v Krkonoších</p>
+                        </div>
+                        
+                        <div class="guide-feature">
+                            <img src="icon4.png" alt="Eliminace stresových faktorů" class="guide-icon">
+                            <h3 class="feature-title">eliminace stresových faktorů</h3>
+                            <p class="feature-description">průvodce se postará o váš komfort během výletu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Company Info Section -->
+        <section class="company-info-section">
+            <div class="container">
+                <div class="company-info">
+                    <p class="company-name">ENZIAN S.R.O.</p>
+                    <p class="company-address">se sídlem Vacínova 1848/2 Praha 8</p>
+                    <br>
+                    <p class="company-ico">IČO: 28386094</p>
+                    <p class="company-registration">zapsaná v obchodním rejstříku vedeného Městským soudem v Praze oddíl C vložka 137873</p>
+                    <p class="company-bank">Bankovní spojení: 220878237/0300</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps?q=Mountain+Shop+Enzian,+209,+542+21+Pec+pod+Sněžkou,+Czech+Republic&output=embed&z=16"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#obchodni-podminky" class="footer-link">Obchodní a reklamační podmínky</a>
+                    <a href="#vop" class="footer-link">VOP</a>
+                    <a href="#kamerovy-system" class="footer-link">Kamerový systém</a>
+                    <a href="#gdpr" class="footer-link">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- Close page-wrapper -->
+
+    <script src="script.js"></script>
+    <script src="pujcovna.js"></script>
+</body>
+</html>

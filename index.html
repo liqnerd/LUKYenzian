@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Shop Enzian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <ul class="nav-menu nav-left">
+                    <li class="nav-item">
+                        <a href="prodejna.html" class="nav-link">PRODEJNA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pujcovna.html" class="nav-link">PŮJČOVNA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servis" class="nav-link">SERVIS</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Mountain Shop Enzian" class="logo-image">
+                    </a>
+                </div>
+                
+                <ul class="nav-menu nav-right">
+                    <li class="nav-item">
+                        <a href="#kurzy" class="nav-link">KURZY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#aktuality" class="nav-link">AKTUALITY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#kontakt" class="nav-link">KONTAKT</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section - Full Screen Image Slider -->
+        <section class="hero">
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="https://picsum.photos/1920/1080?random=1" 
+                         data-fallback="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop" 
+                         alt="Mountain bikers in mountainous terrain" class="hero-image">
+                </div>
+                <div class="slide">
+                    <img src="https://picsum.photos/1920/1080?random=2" 
+                         data-fallback="https://images.unsplash.com/photo-1544191696-15693072b5a0?w=1920&h=1080&fit=crop" 
+                         alt="Mountain biking trail" class="hero-image">
+                </div>
+                <div class="slide">
+                    <img src="https://picsum.photos/1920/1080?random=3" 
+                         data-fallback="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1920&h=1080&fit=crop" 
+                         alt="Mountain bike equipment" class="hero-image">
+                </div>
+                
+                <!-- Slider Navigation -->
+                <div class="slider-nav">
+                    <button class="slider-btn prev-btn">‹</button>
+                    <button class="slider-btn next-btn">›</button>
+                </div>
+                
+                <!-- Slider Dots -->
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#obchodni-podminky" class="footer-link">Obchodní a reklamační podmínky</a>
+                    <a href="#vop" class="footer-link">VOP</a>
+                    <a href="#kamerovy-system" class="footer-link">Kamerový systém</a>
+                    <a href="#gdpr" class="footer-link">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
