@@ -265,22 +265,14 @@
 
 .modal-nav-left {
     left: 30px;
-}
-
-.modal-nav-left::before {
-    content: '‹';
-    display: block;
-    margin-left: -2px;
+    text-align: center;
+    padding-left: 2px;
 }
 
 .modal-nav-right {
     right: 30px;
-}
-
-.modal-nav-right::before {
-    content: '›';
-    display: block;
-    margin-right: -2px;
+    text-align: center;
+    padding-right: 2px;
 }
 
 .modal-nav-left:hover,
