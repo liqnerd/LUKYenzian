@@ -291,13 +291,12 @@
         opacity: 1 !important;
     }
 
-    /* DEBUG: Temporary bright background to make nav-toggle visible */
+    /* Style nav-toggle to match other pages exactly */
     .nav-toggle {
-        background-color: red !important;
-        padding: 10px !important;
-        border: 2px solid blue !important;
-        min-width: 40px !important;
-        min-height: 40px !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     /* Mobile navigation toggle animations */
