@@ -125,8 +125,10 @@
 
 /* Pricing Table Section */
 .pricing-table-section {
-    padding: 3rem 0;
-    background: white;
+    width: 100%;
+    margin: 3.2rem 0 0 0;
+    padding: 0;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,65 +136,65 @@
 }
 
 .pricing-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 2rem;
+    font-size: 2.4rem;
+    font-weight: bold;
     text-align: center;
+    margin-bottom: 2.4rem;
+    color: #000;
 }
 
 .pricing-table {
     width: fit-content;
-    max-width: 1248px;
+    background: white;
+    border-collapse: collapse;
+    display: table;
     margin: 0 auto;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border-collapse: collapse;
-    display: table;
 }
 
+.pricing-header,
 .pricing-row {
     display: table-row;
 }
 
 .pricing-cell {
     display: table-cell;
-    padding: 16px 20px;
-    text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid #e0e0e0;
-    min-width: 120px;
+    padding: 0.96rem 1.6rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #000;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    min-width: 96px;
 }
 
 .pricing-cell.service-cell {
-    width: 400px;
-    min-width: 400px;
+    width: 320px;
+    min-width: 320px;
+    text-align: left;
 }
 
 .pricing-header .pricing-cell {
-    font-weight: 700;
-    color: #333;
-    border-bottom: 2px solid #333;
-    background: none;
+    font-weight: normal;
+    font-size: 0.72rem;
+    color: #939393;
+    border-bottom: 1px solid #ddd;
+    text-decoration: underline;
 }
 
 .service-name {
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin-bottom: 4px;
+    font-size: 0.8rem;
 }
 
 .service-desc {
-    font-size: 0.85rem;
+    font-size: 0.72rem;
     color: #666;
-    line-height: 1.3;
-}
-
-.pricing-cell:last-child {
-    text-align: center;
-    font-weight: 600;
-    color: #333;
+    line-height: 1.2;
 }
 
 .highlight-free {
@@ -202,51 +204,12 @@
 
 .pricing-note {
     margin-top: 1rem;
-    font-size: 0.85rem;
+    font-size: 0.72rem;
     color: #666;
     text-align: center;
-    font-style: italic;
 }
 
-/* Company Info Section */
-.company-info-section {
-    padding: 3rem 0;
-    background: white;
-    text-align: center;
-}
 
-.company-info p {
-    margin: 0.2rem 0;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
-}
-
-.company-name {
-    font-weight: 600;
-    color: #333 !important;
-}
-
-/* Map Section */
-.map-section {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.map-container {
-    width: 100%;
-    height: 400px;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
 /* Footer */
 .footer {
