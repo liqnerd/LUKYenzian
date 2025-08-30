@@ -133,6 +133,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 
@@ -145,13 +146,15 @@
     color: #000;
 }
 
+.pricing-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .pricing-table {
     width: fit-content;
-    max-width: 1248px;
-    margin: 0 auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     background: white;
     border-collapse: collapse;
     display: table;
