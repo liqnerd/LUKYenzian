@@ -141,12 +141,6 @@
     background: #F9F9F9;
     margin: 3rem 0 0 0;
     padding: 3rem 0;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 /* Bike Title Section */
@@ -922,14 +916,8 @@
     }
     
     .bike-gray-section {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        margin-top: 3rem;
-        margin-bottom: 0;
+        background: #F9F9F9;
+        margin: 3rem -20px 0 -20px;
         padding: 3rem 20px;
     }
 }
@@ -942,14 +930,8 @@
     }
     
     .bike-gray-section {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        margin-top: 3rem;
-        margin-bottom: 0;
+        background: #F9F9F9;
+        margin: 3rem -15px 0 -15px;
         padding: 3rem 15px;
     }
     
@@ -1172,7 +1154,7 @@
     
     /* Responsive pricing table */
     .pricing-table-section {
-        padding: 0 0.8rem;
+        padding: 0 0.2rem;
         margin-top: 2rem;
     }
 
@@ -1183,15 +1165,15 @@
         -webkit-overflow-scrolling: touch;
         padding-bottom: 15px;
         margin: 0 -20px; /* Allow full width scrolling */
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 5px;
+        padding-right: 5px;
         /* Enhanced touch scrolling */
         scroll-behavior: smooth;
         scrollbar-width: thin;
         scrollbar-color: #AFBB30 transparent;
         /* Ensure it's scrollable */
-        width: 100%;
-        max-width: 100%;
+        width: calc(100% + 40px);
+        max-width: calc(100% + 40px);
     }
     
     .pricing-wrapper::-webkit-scrollbar {
@@ -1475,10 +1457,12 @@
     /* Enhanced mobile pricing table scrolling for smaller screens */
     .pricing-wrapper {
         margin: 0 -15px !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
+        width: calc(100% + 30px) !important;
+        max-width: calc(100% + 30px) !important;
     }
     
     .pricing-table {
