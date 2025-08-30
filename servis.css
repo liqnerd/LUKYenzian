@@ -323,6 +323,18 @@
         min-width: 250px;
     }
     
+    /* Add horizontal scrolling for pricing table on mobile */
+    .pricing-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+
+    .pricing-table {
+        min-width: 600px; /* Ensure table doesn't shrink too much */
+        white-space: nowrap;
+    }
+
     .pricing-cell {
         padding: 10px 12px;
         font-size: 0.85rem;
@@ -331,6 +343,22 @@
     .service-intro,
     .service-note {
         font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    /* Mobile touch-friendly improvements */
+    .service-description {
+        padding: 2rem 1rem;
+    }
+
+    .service-intro {
+        margin-bottom: 2rem;
+    }
+
+    /* Ensure content is readable on mobile */
+    body {
+        font-size: 16px; /* Prevent iOS zoom on form focus */
     }
     
     .map-container {

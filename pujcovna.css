@@ -983,9 +983,26 @@
         margin-bottom: 3rem;
     }
     
+    .bike-image-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .bike-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
     .bike-image {
-        max-width: 350px;
+        max-width: 90%;
         max-height: 280px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
     }
     
     .bike-point {
@@ -1120,6 +1137,18 @@
         padding: 0 0.8rem;
         margin-top: 2rem;
     }
+
+    /* Add horizontal scrolling for pricing table on mobile */
+    .pricing-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+
+    .pricing-table {
+        min-width: 600px; /* Ensure table doesn't shrink too much */
+        white-space: nowrap;
+    }
     
     .pricing-title {
         font-size: 1.76rem;
@@ -1172,13 +1201,30 @@
     }
     
     .form-input {
-        padding: 0.7rem 0.84rem;
-        font-size: 0.63rem;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        min-height: 48px; /* Touch-friendly size */
+        box-sizing: border-box;
     }
-    
+
+    /* Ensure forms are mobile-friendly */
+    .bike-section {
+        margin-bottom: 1.5rem;
+        padding: 1.2rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 1.2rem 2rem;
+        min-height: 48px; /* Touch-friendly size */
+    }
+
+    /* Mobile form optimizations */
     .bike-type-btn {
-        padding: 0.7rem 0.84rem;
-        font-size: 0.63rem;
+        padding: 1rem;
+        font-size: 0.9rem;
+        min-height: 48px; /* Touch-friendly size */
     }
     
     .bike-buttons-row {
