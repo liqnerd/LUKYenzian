@@ -305,7 +305,7 @@
         border-radius: 2px !important;
     }
 
-    /* Clean hamburger bars to match other pages */
+    /* Clean hamburger bars with proper spacing */
     .header .nav .nav-container .nav-toggle .bar,
     .nav-toggle .bar,
     .bar {
@@ -313,9 +313,9 @@
         background-color: #333 !important;
         width: 25px !important;
         height: 2px !important;
-        margin: 2px 0 !important;
+        margin: 3px 0 !important;
         display: block !important;
-        border-radius: 2px !important;
+        border-radius: 0 !important;
         border: none !important;
         position: relative !important;
         visibility: visible !important;
@@ -335,17 +335,25 @@
         justify-content: center !important;
     }
 
-    /* Mobile navigation toggle animations */
+    /* Mobile navigation toggle animations - fixed to match other pages */
     .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
+        opacity: 0 !important;
     }
 
     .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg) !important;
     }
 
     .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+
+    /* Ensure proper animation transitions */
+    .nav-toggle .bar:nth-child(1),
+    .nav-toggle .bar:nth-child(2),
+    .nav-toggle .bar:nth-child(3) {
+        transition: all 0.3s ease !important;
+        transform-origin: center !important;
     }
 
     /* Mobile navigation menu styles */
