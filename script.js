@@ -1,37 +1,95 @@
+// Create Unified Mobile Navigation
+function createMobileNavigation() {
+    // Get all navigation items from both nav-left and nav-right
+    const navLeft = document.querySelector('.nav-menu.nav-left');
+    const navRight = document.querySelector('.nav-menu.nav-right');
+    
+    if (!navLeft || !navRight) return;
+    
+    // Create mobile navigation container
+    const mobileNav = document.createElement('ul');
+    mobileNav.className = 'mobile-nav-menu';
+    
+    // Get all links from both menus
+    const allNavItems = [];
+    
+    // Add nav-left items (PRODEJNA, PŮJČOVNA, SERVIS)
+    const leftItems = navLeft.querySelectorAll('.nav-item');
+    leftItems.forEach(item => {
+        const link = item.querySelector('.nav-link');
+        allNavItems.push({
+            text: link.textContent,
+            href: link.getAttribute('href'),
+            isActive: link.classList.contains('active')
+        });
+    });
+    
+    // Add nav-right items (KURZY, AKTUALITY, KONTAKT)
+    const rightItems = navRight.querySelectorAll('.nav-item');
+    rightItems.forEach(item => {
+        const link = item.querySelector('.nav-link');
+        allNavItems.push({
+            text: link.textContent,
+            href: link.getAttribute('href'),
+            isActive: link.classList.contains('active')
+        });
+    });
+    
+    // Create mobile menu items
+    allNavItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'mobile-nav-item';
+        
+        const a = document.createElement('a');
+        a.className = `mobile-nav-link ${item.isActive ? 'active' : ''}`;
+        a.href = item.href;
+        a.textContent = item.text;
+        
+        li.appendChild(a);
+        mobileNav.appendChild(li);
+    });
+    
+    // Insert mobile nav after nav-container
+    const navContainer = document.querySelector('.nav-container');
+    navContainer.parentNode.insertBefore(mobileNav, navContainer.nextSibling);
+    
+    return mobileNav;
+}
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
-const navMenus = document.querySelectorAll('.nav-menu');
+let mobileNavMenu = null;
+
+// Initialize mobile navigation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    mobileNavMenu = createMobileNavigation();
+});
 
 navToggle.addEventListener('click', () => {
-    navMenus.forEach(menu => {
-        menu.classList.toggle('active');
-    });
+    if (!mobileNavMenu) mobileNavMenu = createMobileNavigation();
+    
+    mobileNavMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
     
     // Prevent body scroll when menu is open
-    document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : 'hidden';
+    document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : 'auto';
 });
 
 // Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenus.forEach(menu => {
-            menu.classList.remove('active');
-        });
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mobile-nav-link')) {
+        if (mobileNavMenu) mobileNavMenu.classList.remove('active');
         navToggle.classList.remove('active');
-        document.body.style.overflow = 'hidden';
-    });
+        document.body.style.overflow = 'auto';
+    }
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav') && navToggle.classList.contains('active')) {
-        navMenus.forEach(menu => {
-            menu.classList.remove('active');
-        });
+        if (mobileNavMenu) mobileNavMenu.classList.remove('active');
         navToggle.classList.remove('active');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'auto';
     }
 });
 
