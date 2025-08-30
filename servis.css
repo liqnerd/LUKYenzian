@@ -20,11 +20,13 @@
     padding-top: 80px;
 }
 
-/* Page Header */
+/* Page Header - matches pujcovna.css exactly */
 .page-header {
-    padding: 2rem 0;
-    background: white;
+    background-color: white;
+    padding: 15px 0 10px;
     text-align: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .page-title {
@@ -36,7 +38,7 @@
 }
 
 .opening-hours {
-    margin-top: 1rem;
+    margin-top: 5px;
 }
 
 .hours-label {
@@ -337,6 +339,14 @@
     
     .footer-content {
         padding: 0 15px;
+    }
+    
+    .page-header {
+        padding: 40px 0 30px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
     }
     
     .footer-links {
