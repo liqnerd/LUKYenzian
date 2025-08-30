@@ -209,8 +209,8 @@
 }
 
 .pricing-note {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem !important;
+    margin-bottom: 4rem !important;
     font-size: 0.72rem;
     color: #666;
     text-align: center;
