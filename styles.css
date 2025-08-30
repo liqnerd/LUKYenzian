@@ -272,6 +272,24 @@ main {
         padding: 0 20px;
         height: 65px;
         gap: 3rem;
+        justify-content: space-between;
+    }
+    
+    /* Move logo to left side on mobile */
+    .nav-logo {
+        order: 1;
+        margin-right: auto;
+    }
+    
+    /* Keep hamburger menu on right side */
+    .nav-toggle {
+        order: 3;
+        margin-left: auto;
+    }
+    
+    /* Hide desktop navigation menus on mobile */
+    .nav-menu {
+        display: none;
     }
     
     .header {
@@ -386,6 +404,19 @@ main {
 @media (max-width: 480px) {
     .nav-container {
         padding: 0 15px;
+        justify-content: space-between;
+    }
+    
+    /* Ensure logo stays on left for smaller screens */
+    .nav-logo {
+        order: 1;
+        margin-right: auto;
+    }
+    
+    /* Ensure hamburger menu stays on right for smaller screens */
+    .nav-toggle {
+        order: 3;
+        margin-left: auto;
     }
     
     .footer-content {

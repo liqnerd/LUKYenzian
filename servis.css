@@ -265,6 +265,25 @@
     .container {
         padding: 0 20px;
     }
+    
+    /* Ensure consistent mobile header layout - logo left, menu right */
+    .nav-container {
+        justify-content: space-between !important;
+    }
+    
+    .nav-logo {
+        order: 1 !important;
+        margin-right: auto !important;
+    }
+    
+    .nav-toggle {
+        order: 3 !important;
+        margin-left: auto !important;
+    }
+    
+    .nav-menu {
+        display: none !important;
+    }
 
     /* Force mobile navigation toggle to be visible on all mobile devices - high specificity */
     .header .nav .nav-container .nav-toggle,
