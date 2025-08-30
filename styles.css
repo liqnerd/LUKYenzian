@@ -286,7 +286,7 @@ main {
         padding: 0 20px;
     }
     
-    /* Mobile menu - unified background for both nav sections */
+    /* Create one seamless mobile menu background */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -298,30 +298,30 @@ main {
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 3rem 0;
+        padding: 2rem 0;
         gap: 2rem;
         height: calc(100vh - 65px);
         justify-content: center;
         z-index: 1000;
     }
 
-    /* Nav-left positioned in upper area */
+    /* Position nav-left at top of screen */
     .nav-menu.nav-left {
-        padding: 3rem 0 1.5rem 0;
-        height: auto;
+        top: 65px;
+        height: calc(50% - 32.5px);
+        padding: 2rem 0 1rem 0;
         justify-content: flex-end;
     }
 
-    /* Nav-right positioned in lower area - same background, no gap */
+    /* Position nav-right directly below nav-left with no gap */
     .nav-menu.nav-right {
-        top: calc(65px + 200px);
-        padding: 1.5rem 0 3rem 0;
-        height: auto;
+        top: calc(50% + 32.5px);
+        height: calc(50% - 32.5px);
+        padding: 1rem 0 2rem 0;
         justify-content: flex-start;
         background-color: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
         box-shadow: none;
-        border-top: 1px solid rgba(139, 115, 85, 0.15);
     }
 
     .nav-menu.active {
