@@ -348,19 +348,43 @@
     }
 
     .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg) !important;
+        transform: translateY(7px) rotate(45deg) !important;
+        transform-origin: center center !important;
     }
 
     .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg) !important;
+        transform: translateY(-7px) rotate(-45deg) !important;
+        transform-origin: center center !important;
     }
 
-    /* Ensure proper animation transitions */
+    /* Ensure proper animation transitions and perfect centering */
     .nav-toggle .bar:nth-child(1),
     .nav-toggle .bar:nth-child(2),
     .nav-toggle .bar:nth-child(3) {
         transition: all 0.3s ease !important;
-        transform-origin: center !important;
+        transform-origin: center center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Perfect X formation - ensure both lines cross exactly in center */
+    .nav-toggle.active .bar:nth-child(1),
+    .nav-toggle.active .bar:nth-child(3) {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform-origin: center center !important;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg) !important;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg) !important;
     }
 
     /* Mobile navigation menu styles */
