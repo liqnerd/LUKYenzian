@@ -266,20 +266,38 @@
         padding: 0 20px;
     }
 
-    /* Force mobile navigation toggle to be visible on all mobile devices */
+    /* Force mobile navigation toggle to be visible on all mobile devices - high specificity */
+    .header .nav .nav-container .nav-toggle,
     .nav-toggle {
         display: flex !important;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 20;
+        flex-direction: column !important;
+        cursor: pointer !important;
+        z-index: 20 !important;
+        position: relative !important;
+        width: auto !important;
+        height: auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .bar {
-        width: 25px;
-        height: 2px;
-        background-color: #333;
-        margin: 2px 0;
-        transition: 0.3s;
+        width: 25px !important;
+        height: 2px !important;
+        background-color: #333 !important;
+        margin: 2px 0 !important;
+        transition: 0.3s !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* DEBUG: Temporary bright background to make nav-toggle visible */
+    .nav-toggle {
+        background-color: red !important;
+        padding: 10px !important;
+        border: 2px solid blue !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
     }
 
     /* Mobile navigation toggle animations */
