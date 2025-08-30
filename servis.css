@@ -135,12 +135,7 @@
     justify-content: center;
 }
 
-.pricing-table-section .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .pricing-title {
     font-size: 2.4rem;
@@ -215,6 +210,11 @@
     font-size: 0.72rem;
     color: #666;
     text-align: center;
+}
+
+/* Hide footer on servis page */
+.footer {
+    display: none !important;
 }
 
 
