@@ -1,0 +1,339 @@
+/* SERVIS Page Specific Styles */
+
+/* Global Container */
+.container {
+    max-width: 1400px; /* Matches nav-container */
+    margin: 0 auto;
+    padding: 0 60px;   /* Matches nav-container */
+    width: 100%;
+}
+
+/* Page Layout */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 80px;
+}
+
+/* Page Header */
+.page-header {
+    padding: 2rem 0;
+    background: white;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.opening-hours {
+    margin-top: 1rem;
+}
+
+.hours-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.hours-time {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #8B7355;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Service Description */
+.service-description {
+    padding: 3rem 0;
+    background: white;
+}
+
+.service-intro {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+.services-section {
+    padding: 3rem 0;
+    background: white;
+}
+
+.services-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+    max-width: 600px;
+}
+
+.services-list li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.services-list li:before {
+    content: "•";
+    color: #AFBB30;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.services-list li:last-child {
+    border-bottom: none;
+}
+
+.service-note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* Pricing Table Section */
+.pricing-table-section {
+    padding: 3rem 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.pricing-table {
+    width: fit-content;
+    max-width: 1248px;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-collapse: collapse;
+    display: table;
+}
+
+.pricing-row {
+    display: table-row;
+}
+
+.pricing-cell {
+    display: table-cell;
+    padding: 16px 20px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e0e0e0;
+    min-width: 120px;
+}
+
+.pricing-cell.service-cell {
+    width: 400px;
+    min-width: 400px;
+}
+
+.pricing-header .pricing-cell {
+    font-weight: 700;
+    color: #333;
+    border-bottom: 2px solid #333;
+    background: none;
+}
+
+.service-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.service-desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.3;
+}
+
+.pricing-cell:last-child {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+}
+
+.highlight-free {
+    color: #AFBB30 !important;
+    font-weight: 700 !important;
+}
+
+.pricing-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Company Info Section */
+.company-info-section {
+    padding: 3rem 0;
+    background: white;
+    text-align: center;
+}
+
+.company-info p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.company-name {
+    font-weight: 600;
+    color: #333 !important;
+}
+
+/* Map Section */
+.map-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+    }
+    
+    .services-title,
+    .pricing-title {
+        font-size: 1.3rem;
+    }
+    
+    .pricing-cell.service-cell {
+        width: 300px;
+        min-width: 300px;
+    }
+    
+    .pricing-cell {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .page-title {
+        font-size: 1.4rem;
+    }
+    
+    .services-title,
+    .pricing-title {
+        font-size: 1.2rem;
+    }
+    
+    .pricing-cell.service-cell {
+        width: 250px;
+        min-width: 250px;
+    }
+    
+    .pricing-cell {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .service-intro,
+    .service-note {
+        font-size: 0.9rem;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+}
