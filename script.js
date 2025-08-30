@@ -1,10 +1,25 @@
 // Create Unified Mobile Navigation
 function createMobileNavigation() {
+    console.log('Creating mobile navigation...');
+    
+    // Check if mobile nav already exists
+    const existingMobileNav = document.querySelector('.mobile-nav-menu');
+    if (existingMobileNav) {
+        console.log('Mobile nav already exists');
+        return existingMobileNav;
+    }
+    
     // Get all navigation items from both nav-left and nav-right
     const navLeft = document.querySelector('.nav-menu.nav-left');
     const navRight = document.querySelector('.nav-menu.nav-right');
     
-    if (!navLeft || !navRight) return;
+    console.log('Nav left found:', !!navLeft);
+    console.log('Nav right found:', !!navRight);
+    
+    if (!navLeft || !navRight) {
+        console.error('Navigation elements not found!');
+        return null;
+    }
     
     // Create mobile navigation container
     const mobileNav = document.createElement('ul');
@@ -15,25 +30,33 @@ function createMobileNavigation() {
     
     // Add nav-left items (PRODEJNA, PŮJČOVNA, SERVIS)
     const leftItems = navLeft.querySelectorAll('.nav-item');
+    console.log('Left items found:', leftItems.length);
     leftItems.forEach(item => {
         const link = item.querySelector('.nav-link');
-        allNavItems.push({
-            text: link.textContent,
-            href: link.getAttribute('href'),
-            isActive: link.classList.contains('active')
-        });
+        if (link) {
+            allNavItems.push({
+                text: link.textContent,
+                href: link.getAttribute('href'),
+                isActive: link.classList.contains('active')
+            });
+        }
     });
     
     // Add nav-right items (KURZY, AKTUALITY, KONTAKT)
     const rightItems = navRight.querySelectorAll('.nav-item');
+    console.log('Right items found:', rightItems.length);
     rightItems.forEach(item => {
         const link = item.querySelector('.nav-link');
-        allNavItems.push({
-            text: link.textContent,
-            href: link.getAttribute('href'),
-            isActive: link.classList.contains('active')
-        });
+        if (link) {
+            allNavItems.push({
+                text: link.textContent,
+                href: link.getAttribute('href'),
+                isActive: link.classList.contains('active')
+            });
+        }
     });
+    
+    console.log('Total nav items:', allNavItems.length);
     
     // Create mobile menu items
     allNavItems.forEach(item => {
@@ -51,29 +74,69 @@ function createMobileNavigation() {
     
     // Insert mobile nav after nav-container
     const navContainer = document.querySelector('.nav-container');
-    navContainer.parentNode.insertBefore(mobileNav, navContainer.nextSibling);
-    
-    return mobileNav;
+    if (navContainer) {
+        navContainer.parentNode.insertBefore(mobileNav, navContainer.nextSibling);
+        console.log('Mobile navigation created successfully with', allNavItems.length, 'items');
+        return mobileNav;
+    } else {
+        console.error('Nav container not found!');
+        return null;
+    }
 }
 
 // Mobile Navigation Toggle
-const navToggle = document.querySelector('.nav-toggle');
 let mobileNavMenu = null;
 
-// Initialize mobile navigation when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize mobile navigation with multiple fallbacks
+function initializeMobileNav() {
+    console.log('Initializing mobile navigation...');
+    
+    const navToggle = document.querySelector('.nav-toggle');
+    if (!navToggle) {
+        console.error('Nav toggle not found!');
+        return;
+    }
+    
+    // Create mobile navigation
     mobileNavMenu = createMobileNavigation();
-});
+    
+    // Add click handler for nav toggle
+    navToggle.addEventListener('click', () => {
+        console.log('Nav toggle clicked');
+        
+        if (!mobileNavMenu) {
+            console.log('Mobile nav not found, creating...');
+            mobileNavMenu = createMobileNavigation();
+        }
+        
+        if (mobileNavMenu) {
+            mobileNavMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : 'auto';
+        }
+    });
+}
 
-navToggle.addEventListener('click', () => {
-    if (!mobileNavMenu) mobileNavMenu = createMobileNavigation();
-    
-    mobileNavMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : 'auto';
-});
+// Try multiple initialization methods
+document.addEventListener('DOMContentLoaded', initializeMobileNav);
+
+// Fallback initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeMobileNav);
+} else {
+    // DOM is already loaded
+    initializeMobileNav();
+}
+
+// Additional fallback with timeout
+setTimeout(() => {
+    if (!mobileNavMenu) {
+        console.log('Fallback initialization...');
+        initializeMobileNav();
+    }
+}, 1000);
 
 // Close mobile menu when clicking on a link
 document.addEventListener('click', (e) => {
