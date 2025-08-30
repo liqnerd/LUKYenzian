@@ -291,12 +291,16 @@
         opacity: 1 !important;
     }
 
-    /* Style nav-toggle to match other pages exactly */
+    /* Keep nav-toggle visible with proper styling */
     .nav-toggle {
         background: none !important;
         border: none !important;
-        padding: 0 !important;
+        padding: 8px !important;
         margin: 0 !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     /* Mobile navigation toggle animations */
