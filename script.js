@@ -86,9 +86,15 @@ function createMobileNavigation() {
 
 // Mobile Navigation Toggle
 let mobileNavMenu = null;
+let isInitialized = false;
 
 // Initialize mobile navigation with multiple fallbacks
 function initializeMobileNav() {
+    if (isInitialized) {
+        console.log('Mobile nav already initialized');
+        return;
+    }
+    
     console.log('Initializing mobile navigation...');
     
     const navToggle = document.querySelector('.nav-toggle');
@@ -97,26 +103,47 @@ function initializeMobileNav() {
         return;
     }
     
+    console.log('Nav toggle found, creating mobile navigation...');
+    
     // Create mobile navigation
     mobileNavMenu = createMobileNavigation();
     
-    // Add click handler for nav toggle
-    navToggle.addEventListener('click', () => {
-        console.log('Nav toggle clicked');
+    if (!mobileNavMenu) {
+        console.error('Failed to create mobile navigation');
+        return;
+    }
+    
+    // Add click handler for nav toggle (only once)
+    navToggle.addEventListener('click', handleNavToggleClick);
+    
+    isInitialized = true;
+    console.log('Mobile navigation initialized successfully');
+}
+
+// Handle nav toggle click
+function handleNavToggleClick() {
+    console.log('Nav toggle clicked');
+    
+    if (!mobileNavMenu) {
+        console.log('Mobile nav not found, creating...');
+        mobileNavMenu = createMobileNavigation();
+    }
+    
+    if (mobileNavMenu) {
+        const isActive = mobileNavMenu.classList.contains('active');
+        console.log('Menu currently active:', isActive);
         
-        if (!mobileNavMenu) {
-            console.log('Mobile nav not found, creating...');
-            mobileNavMenu = createMobileNavigation();
-        }
+        mobileNavMenu.classList.toggle('active');
+        document.querySelector('.nav-toggle').classList.toggle('active');
         
-        if (mobileNavMenu) {
-            mobileNavMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : 'auto';
-        }
-    });
+        // Prevent body scroll when menu is open
+        const newIsActive = mobileNavMenu.classList.contains('active');
+        document.body.style.overflow = newIsActive ? 'hidden' : 'auto';
+        
+        console.log('Menu toggled to:', newIsActive);
+    } else {
+        console.error('Mobile nav menu still not available');
+    }
 }
 
 // Try multiple initialization methods
@@ -127,16 +154,40 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeMobileNav);
 } else {
     // DOM is already loaded
+    console.log('DOM already loaded, initializing immediately');
     initializeMobileNav();
 }
 
 // Additional fallback with timeout
 setTimeout(() => {
-    if (!mobileNavMenu) {
-        console.log('Fallback initialization...');
+    if (!isInitialized) {
+        console.log('Fallback initialization after timeout...');
         initializeMobileNav();
     }
 }, 1000);
+
+// Debug function - can be called from browser console
+window.debugMobileNav = function() {
+    console.log('=== MOBILE NAV DEBUG INFO ===');
+    console.log('Is initialized:', isInitialized);
+    console.log('Mobile nav menu exists:', !!mobileNavMenu);
+    console.log('Nav toggle exists:', !!document.querySelector('.nav-toggle'));
+    console.log('Nav left exists:', !!document.querySelector('.nav-menu.nav-left'));
+    console.log('Nav right exists:', !!document.querySelector('.nav-menu.nav-right'));
+    console.log('Nav container exists:', !!document.querySelector('.nav-container'));
+    
+    const navLeft = document.querySelector('.nav-menu.nav-left');
+    const navRight = document.querySelector('.nav-menu.nav-right');
+    
+    if (navLeft) {
+        console.log('Nav left items:', navLeft.querySelectorAll('.nav-item').length);
+    }
+    if (navRight) {
+        console.log('Nav right items:', navRight.querySelectorAll('.nav-item').length);
+    }
+    
+    console.log('============================');
+};
 
 // Close mobile menu when clicking on a link
 document.addEventListener('click', (e) => {
