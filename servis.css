@@ -266,19 +266,23 @@
         padding: 0 20px;
     }
     
-    /* Ensure consistent mobile header layout - logo left, menu right */
+    /* Ensure consistent mobile header layout - logo center, menu right */
     .nav-container {
-        justify-content: space-between !important;
+        justify-content: center !important;
+        position: relative !important;
     }
     
     .nav-logo {
-        order: 1 !important;
-        margin-right: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 10 !important;
     }
     
     .nav-toggle {
-        order: 3 !important;
-        margin-left: auto !important;
+        position: absolute !important;
+        right: 20px !important;
+        z-index: 20 !important;
     }
     
     .nav-menu {
