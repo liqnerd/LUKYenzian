@@ -282,13 +282,38 @@
 
     .bar {
         width: 25px !important;
-        height: 2px !important;
+        height: 3px !important;
         background-color: #333 !important;
-        margin: 2px 0 !important;
+        margin: 3px 0 !important;
         transition: 0.3s !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        border-radius: 2px !important;
+        position: relative !important;
+    }
+
+    /* Ensure bars are visible within nav-toggle */
+    .nav-toggle .bar {
+        width: 25px !important;
+        height: 3px !important;
+        background-color: #333 !important;
+        margin: 3px 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border-radius: 2px !important;
+    }
+
+    /* Make sure nav-toggle has proper structure */
+    .header .nav .nav-container .nav-toggle .bar,
+    .nav-toggle .bar {
+        background: #333 !important;
+        width: 25px !important;
+        height: 3px !important;
+        margin: 3px auto !important;
+        display: block !important;
+        border-radius: 2px !important;
     }
 
     /* Keep nav-toggle visible with proper styling */
