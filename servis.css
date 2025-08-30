@@ -335,9 +335,16 @@
         justify-content: center !important;
     }
 
-    /* Mobile navigation toggle animations - fixed to match other pages */
-    .nav-toggle.active .bar:nth-child(2) {
+    /* Mobile navigation toggle animations - force middle line to disappear */
+    .nav-toggle.active .bar:nth-child(2),
+    .nav-toggle.active span:nth-child(2),
+    .header .nav .nav-container .nav-toggle.active .bar:nth-child(2),
+    .header .nav .nav-container .nav-toggle.active span:nth-child(2) {
         opacity: 0 !important;
+        visibility: hidden !important;
+        transform: scale(0) !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     .nav-toggle.active .bar:nth-child(1) {
