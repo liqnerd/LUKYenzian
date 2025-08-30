@@ -139,8 +139,8 @@
 /* Bike Gray Background Section */
 .bike-gray-section {
     background: #F9F9F9;
-    margin: 3rem 0 0 0;
-    padding: 3rem 0;
+    margin: 3rem -60px 0 -60px;
+    padding: 3rem 60px;
 }
 
 /* Bike Title Section */
@@ -920,6 +920,8 @@
         margin-right: -20px;
         padding-left: 20px;
         padding-right: 20px;
+        margin-top: 3rem;
+        margin-bottom: 0;
     }
 }
 
@@ -935,6 +937,8 @@
         margin-right: -15px;
         padding-left: 15px;
         padding-right: 15px;
+        margin-top: 3rem;
+        margin-bottom: 0;
     }
     
     .page-header {
@@ -1055,84 +1059,92 @@
         width: 250px;
     }
     
-    /* Responsive tooltip adjustments */
+    /* Mobile-friendly tooltip positioning - keep within viewport */
     .tooltip-rear-wheel .tooltip-text {
-        top: -150px;
-        left: -200px;
+        top: -80px;
+        left: -120px;
         font-size: 12px;
         padding: 6px 10px;
+        max-width: 200px;
+        white-space: normal;
     }
     
     .tooltip-rear-wheel .tooltip-line {
-        top: -8px;
-        left: -8px;
+        top: -5px;
+        left: -5px;
         width: 0;
-        transform: rotate(-120deg);
+        transform: rotate(-90deg);
         transform-origin: 0 0;
     }
     
     .bike-point:hover .tooltip-rear-wheel .tooltip-line {
-        width: 160px;
+        width: 80px;
     }
     
-    /* Responsive battery tooltip adjustments */
+    /* Mobile battery tooltip adjustments */
     .tooltip-battery .tooltip-text {
-        top: 80px;
-        left: -200px;
+        top: 30px;
+        left: -120px;
         font-size: 12px;
         padding: 6px 10px;
+        max-width: 200px;
+        white-space: normal;
     }
     
     .tooltip-battery .tooltip-line {
-        top: 8px;
-        left: -8px;
+        top: 5px;
+        left: -5px;
         width: 0;
-        transform: rotate(140deg);
+        transform: rotate(90deg);
         transform-origin: 0 0;
     }
     
     .bike-point:hover .tooltip-battery .tooltip-line {
-        width: 160px;
+        width: 80px;
     }
     
-    /* Responsive handlebar tooltip adjustments */
+    /* Mobile handlebar tooltip adjustments */
     .tooltip-handlebar .tooltip-text {
-        top: -150px;
-        left: 40px;
+        top: -80px;
+        left: -80px;
         font-size: 12px;
         padding: 6px 10px;
+        max-width: 200px;
+        white-space: normal;
     }
     
     .tooltip-handlebar .tooltip-line {
-        top: -8px;
-        left: 8px;
+        top: -5px;
+        left: 5px;
         width: 0;
-        transform: rotate(-40deg);
+        transform: rotate(-90deg);
         transform-origin: 0 0;
     }
     
     .bike-point:hover .tooltip-handlebar .tooltip-line {
-        width: 160px;
+        width: 80px;
     }
     
-    /* Responsive fork tooltip adjustments */
+    /* Mobile fork tooltip adjustments */
     .tooltip-fork .tooltip-text {
-        top: 80px;
-        left: 40px;
+        top: 30px;
+        left: -80px;
         font-size: 12px;
         padding: 6px 10px;
+        max-width: 200px;
+        white-space: normal;
     }
     
     .tooltip-fork .tooltip-line {
-        top: 8px;
-        left: 8px;
+        top: 5px;
+        left: 5px;
         width: 0;
-        transform: rotate(40deg);
+        transform: rotate(90deg);
         transform-origin: 0 0;
     }
     
     .bike-point:hover .tooltip-fork .tooltip-line {
-        width: 160px;
+        width: 80px;
     }
     
     /* Responsive detailed description */
@@ -1156,12 +1168,21 @@
     .pricing-wrapper {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
+        margin: 0 -20px; /* Allow full width scrolling */
+        padding-left: 20px;
+        padding-right: 20px;
+        /* Add scroll indicators */
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 2%, rgba(0,0,0,0.1) 98%, rgba(255,255,255,0) 100%);
     }
 
     .pricing-table {
-        min-width: 600px; /* Ensure table doesn't shrink too much */
+        min-width: 700px; /* Ensure table doesn't shrink too much */
         white-space: nowrap;
+        margin: 0 auto;
+        position: static;
+        left: auto;
+        transform: none;
     }
     
     .pricing-title {
@@ -1415,5 +1436,12 @@
         padding: 10px 25px;
         font-size: 0.85rem;
         width: 220px;
+    }
+    
+    /* Enhanced mobile pricing table scrolling for smaller screens */
+    .pricing-wrapper {
+        margin: 0 -15px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
