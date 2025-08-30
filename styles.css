@@ -297,38 +297,29 @@ main {
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 3rem 0;
-        gap: 2rem;
+        padding: 2rem 0;
+        gap: 1.5rem;
         height: calc(100vh - 65px);
         justify-content: center;
         z-index: 1000;
     }
 
-    /* Override for mobile - both nav-left and nav-right */
-    .nav-menu.nav-left,
-    .nav-menu.nav-right {
-        position: fixed;
-        left: -100%;
+    /* Position nav-left in upper portion */
+    .nav-menu.nav-left {
         top: 65px;
-        flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 3rem 0;
-        gap: 2rem;
-        height: calc(100vh - 65px);
-        justify-content: center;
-        z-index: 1000;
+        height: calc(50vh - 32.5px);
+        padding: 3rem 0 1rem 0;
+        justify-content: flex-end;
     }
 
-    /* Show the nav-right menu below nav-left in mobile */
+    /* Position nav-right in lower portion */
     .nav-menu.nav-right {
-        top: 50vh;
+        top: calc(50vh + 32.5px);
         height: calc(50vh - 32.5px);
-        padding: 1.5rem 0;
+        padding: 1rem 0 3rem 0;
+        justify-content: flex-start;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-top: 1px solid rgba(139, 115, 85, 0.2);
     }
 
     .nav-menu.active {
